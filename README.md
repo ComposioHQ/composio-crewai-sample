@@ -2,24 +2,6 @@
 
 Welcome to the Matter Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
 
-## Installation
-
-Ensure you have Python >=3.10 <=3.13 installed on your system. This project uses [Poetry](https://python-poetry.org/) for dependency management and package handling, offering a seamless setup and execution experience.
-
-First, if you haven't already, install Poetry:
-
-```bash
-pip install poetry
-```
-
-Next, navigate to your project directory and install the dependencies:
-
-1. First lock the dependencies and then install them:
-
-```bash
-poetry lock & install
-```
-
 ### Composio
 Run setup script
 ```bash
