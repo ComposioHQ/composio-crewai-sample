@@ -7,6 +7,10 @@ authors = ["Your Name <you@example.com>"]
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.13"
 crewai = {extras = ["tools"], version = "^0.22.2"}
+composio-crewai = "^0.1.84"
+composio-langchain = "^0.1.84"
+composio-core = "^0.1.84"
+flask = "^3.0.3"
 
 [tool.poetry.scripts]
 serhant = "serhant.main:run"

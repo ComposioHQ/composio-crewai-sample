@@ -9,7 +9,7 @@ from composio_crewai import ComposioToolset, Action, App
 # Check our tools documentations for more information on how to use them
 # from crewai_tools import SerperDevTool
 
-OPENAI_API_KEY = ""  # Change the key with yours
+OPENAI_API_KEY = "<OPEN_API_KEY>"  # Change the key with yours
 
 llm = ChatOpenAI(model="gpt-4-turbo-preview", openai_api_key=OPENAI_API_KEY)
 

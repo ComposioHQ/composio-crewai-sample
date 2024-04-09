@@ -21,13 +21,12 @@ poetry lock & install
 ```
 
 ### Composio
-
-To install composio, run this command in the terminal:
+Run setup script
 ```bash
-pip install composio_crewai -U
+chmod +x setup.sh && ./setup.sh
 ```
 
-For the auth management and integrations, let's use Composio.
+**For the auth management and integrations, let's use Composio**
 
 ```bash
 composio-cli add notion
@@ -42,7 +41,7 @@ You need to either create a public server or tunnel to setup webhook to get mess
 #### Local setup
 To tunnel to setup webhook to get messages from composio, you can use ngrok.
 ```bash
-ngrok http 2000
+ngrok http http://0.0.0.0:2000
 ```
 ```bash
 composio-cli set global-trigger-callback "<ngrok-url>"
@@ -54,19 +53,13 @@ composio-cli enable-trigger slack_receive_message
 ```
 This will enable the trigger to get messages from slack when a message is sent.
 
-#### To setup the webhook handler:
-Install flask and run the server.
-```bash
-pip install flask
-```
-
 #### Public server setup
 Public setup doesn't require ngrok and you can directly set global-trigger-callback to the public url and enable the trigger.
 
 
 ### Customizing
 
-**Add you `OPENAI_API_KEY` on the `.env` file**
+**Add `OPENAI_API_KEY` in src/serhant/crew.py.**
 
 - Modify `src/serhant/config/agents.yaml` to define your agents
 - Modify `src/serhant/config/tasks.yaml` to define your tasks
@@ -78,7 +71,8 @@ Public setup doesn't require ngrok and you can directly set global-trigger-callb
 To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
 
 ```bash
-poetry run serhant
+poetry shell
+python main.py
 ```
 
 This command initializes the serhant Crew, assembling the agents and assigning them tasks as defined in your configuration.
