@@ -8,6 +8,8 @@ Welcome to the Matter Crew project, powered by [crewAI](https://crewai.com). Thi
 cp .env.sample .env && code .env
 ```
 
+**Note**: There's no need to add `TRIGGER_ID` and `CHANNEL_ID` in the .env file right now, **we'll get to that in the next steps**.
+
 2. Run setup script
 ```bash
 chmod +x setup.sh && ./setup.sh
@@ -17,8 +19,8 @@ chmod +x setup.sh && ./setup.sh
 
 3. Use Composio CLI
 ```bash
-composio-cli add notion
-composio-cli add slack
+poetry run composio-cli add notion
+poetry run composio-cli add slack
 ```
 
 Go through the flow to notion, and complete the authorization flow.
