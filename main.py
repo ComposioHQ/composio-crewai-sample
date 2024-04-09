@@ -1,12 +1,18 @@
 #!/usr/bin/env python
+from dotenv import load_dotenv
+load_dotenv()
 from serhant import SerhantCrew
-
 from flask import Flask, request
+import os
 
 app = Flask(__name__)
 
-TRIGGER_ID = "ed7f8789-b93b-4636-9d34-c6376a9aef60"  # 53e67c17-c9a8-4d96-83ad-c7c508ffe462 example
-CHANNEL_ID = "C06S0P99Q8G"  # Specify the Slack channel ID here to monitor and capture its messages
+TRIGGER_ID = os.environ.get("TRIGGER_ID", None)
+CHANNEL_ID = os.environ.get("CHANNEL_ID", None)
+
+if TRIGGER_ID is None or CHANNEL_ID is None:
+    print("Please set TRIGGER_ID and CHANNEL_ID environment variables in the .env file")
+    exit(1)
 
 
 def run_crew(topic: str):

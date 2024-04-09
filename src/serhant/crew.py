@@ -2,14 +2,18 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from langchain_openai import ChatOpenAI
 from composio_crewai import ComposioToolset, Action, App
-
+import os
 # Uncomment the following line to use an example of a custom tool
 # from serhant.tools.custom_tool import MyCustomTool
 
 # Check our tools documentations for more information on how to use them
 # from crewai_tools import SerperDevTool
 
-OPENAI_API_KEY = "<OPEN_API_KEY>"  # Change the key with yours
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", None)
+
+if OPENAI_API_KEY is None:
+    print("Please set OPENAI_API_KEY environment variable in the .env file")
+    exit(1)
 
 llm = ChatOpenAI(model="gpt-4-turbo", openai_api_key=OPENAI_API_KEY)
 

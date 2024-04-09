@@ -11,6 +11,7 @@ composio-crewai = "^0.1.84"
 composio-langchain = "^0.1.84"
 composio-core = "^0.1.84"
 flask = "^3.0.3"
+python-dotenv = "^1.0.1"
 
 [tool.poetry.scripts]
 serhant = "serhant.main:run"
