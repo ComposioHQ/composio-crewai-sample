@@ -11,7 +11,7 @@ from composio_crewai import ComposioToolset, Action, App
 
 OPENAI_API_KEY = "<OPEN_API_KEY>"  # Change the key with yours
 
-llm = ChatOpenAI(model="gpt-4-turbo-preview", openai_api_key=OPENAI_API_KEY)
+llm = ChatOpenAI(model="gpt-4-turbo", openai_api_key=OPENAI_API_KEY)
 
 notionComposioToolset = ComposioToolset(apps=[App.NOTION])
 slackComposioToolset = ComposioToolset(apps=[App.SLACK])
