@@ -37,6 +37,7 @@ Below is the basic setup you can do to run the repository.
    - Activates the Poetry shell for managing project dependencies.
 
    You can run this script to automate the setup process for your development environment.
+   
    NB: Required Python version (>=3.10, <=3.13)
 
    ```bash
@@ -88,7 +89,9 @@ Below is the basic setup you can do to run the repository.
     
     This command initializes the Client Crew, assembling the agents and assigning them tasks according to the configuration.
     By default, it generates a `report.md` file with the output of research on LLMs in the root folder.
-
+    
+    Start sending messages to the Slack channel and see Composio in action, seamlessly updating Notion with detailed reports.
+    
 #### Public Server Setup
 
 For public setups, directly set the global trigger callback to the public URL and enable the trigger.
