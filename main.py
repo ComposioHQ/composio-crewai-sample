@@ -1,9 +1,13 @@
-#!/usr/bin/env python
-from dotenv import load_dotenv
-load_dotenv()
-from serhant import SerhantCrew
-from flask import Flask, request
+# main.py
+
 import os
+
+from dotenv import load_dotenv
+from flask import Flask, request
+
+load_dotenv()
+
+from client import ClientCrew
 
 app = Flask(__name__)
 
@@ -16,9 +20,8 @@ if TRIGGER_ID is None or CHANNEL_ID is None:
 
 
 def run_crew(topic: str):
-    # Replace with your inputs, it will automatically interpolate any tasks and agents information
     inputs = {"topic": topic}
-    SerhantCrew().crew().kickoff(inputs=inputs)
+    ClientCrew().crew().kickoff(inputs=inputs)
 
 
 async def async_run_crew(channel, text, user):
@@ -26,18 +29,17 @@ async def async_run_crew(channel, text, user):
         run_crew(text)
     return "Crew run initiated", 200
 
+
 @app.route("/", methods=["POST"])
 async def webhook():
     payload = request.json
-    # trigger_id = payload.get("trigger_id", {})
-    # if trigger_id != TRIGGER_ID:
-    print("Payload received", payload)
-
-    print("Received payload:", payload)
 
     message_payload = payload.get("payload", {})
-
     channel = message_payload.get("channel", "")
+
+    if channel == CHANNEL_ID:
+        print("Payload received", payload)
+
     text = message_payload.get("text", "")
     user = message_payload.get("user", "")
 

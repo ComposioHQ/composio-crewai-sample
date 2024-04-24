@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "serhant"
+name = "client"
 version = "0.1.0"
-description = "serhant using crewAI"
+description = "client using crewAI"
 authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
@@ -14,7 +14,7 @@ flask = "^3.0.3"
 python-dotenv = "^1.0.1"
 
 [tool.poetry.scripts]
-serhant = "serhant.main:run"
+client = "client.main:run"
 
 [build-system]
 requires = ["poetry-core"]
