@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "client"
+version = "0.1.0"
+description = "Sample project using Composio and crewAI"
+authors = ["Soham <hello@composio.dev>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = {extras = ["tools"], version = "^0"}
+composio-crewai = "^0.2"
+composio-langchain = "^0.2"
+composio-core = "^0.2"
+flask = "^3.0.3"
+python-dotenv = "^1.0.1"
+
+[tool.poetry.scripts]
+client = "client.main:run"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
