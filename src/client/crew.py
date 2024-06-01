@@ -1,6 +1,6 @@
 import os
 
-from composio_crewai import Action, App, ComposioToolset
+from composio_crewai import Action, App, ComposioToolSet
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from langchain_openai import ChatOpenAI
@@ -12,9 +12,10 @@ if OPENAI_API_KEY is None:
     exit(1)
 
 llm = ChatOpenAI(model="gpt-4-turbo", openai_api_key=OPENAI_API_KEY)
+composio_toolset = ComposioToolSet()
 
-notion_composio_toolset = ComposioToolset(apps=[App.NOTION])
-slack_composio_toolset = ComposioToolset(apps=[App.SLACK])
+notion_composio_toolset = composio_toolset.get_tools(apps=[App.NOTION])
+slack_composio_toolset = composio_toolset.get_tools(apps=[App.SLACK])
 
 
 @CrewBase
